@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>🐸🙏</title>
+    </head>
+    <body>
+        <main>
+            <a href="/" class="logo"></a>
+
+            <div class="frog">
+                <div class="frog__blessing"></div>
+                <div class="frog__head"></div>
+            </div>
+            <button class="cta button">
+                Click to receive amphibian blessing
+            </button>
+            <footer>
+                <p>
+                    Based on
+                    <a href="https://i.redd.it/w6yzerz484u71.png" rel="noopener"
+                        >this handy infographic</a
+                    >
+                    by
+                    <a href="https://theraccoonsociety.com/">Raccoon society</a>
+                </p>
+                <div class="spacer"></div>
+                ·
+                <div class="spacer"></div>
+                <a href="https://www.instagram.com/yay.psd/">@yay.psd</a>
+            </footer>
+        </main>
+
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+            <defs>
+                <filter id="squiggly-0">
+                    <feTurbulence
+                        id="turbulence"
+                        baseFrequency="0.02"
+                        numOctaves="3"
+                        result="noise"
+                        seed="0"
+                    />
+                    <feDisplacementMap
+                        id="displacement"
+                        in="SourceGraphic"
+                        in2="noise"
+                        scale="6"
+                    />
+                </filter>
+                <filter id="squiggly-1">
+                    <feTurbulence
+                        id="turbulence"
+                        baseFrequency="0.02"
+                        numOctaves="3"
+                        result="noise"
+                        seed="1"
+                    />
+                    <feDisplacementMap
+                        in="SourceGraphic"
+                        in2="noise"
+                        scale="8"
+                    />
+                </filter>
+
+                <filter id="squiggly-2">
+                    <feTurbulence
+                        id="turbulence"
+                        baseFrequency="0.02"
+                        numOctaves="3"
+                        result="noise"
+                        seed="2"
+                    />
+                    <feDisplacementMap
+                        in="SourceGraphic"
+                        in2="noise"
+                        scale="6"
+                    />
+                </filter>
+                <filter id="squiggly-3">
+                    <feTurbulence
+                        id="turbulence"
+                        baseFrequency="0.02"
+                        numOctaves="3"
+                        result="noise"
+                        seed="3"
+                    />
+                    <feDisplacementMap
+                        in="SourceGraphic"
+                        in2="noise"
+                        scale="8"
+                    />
+                </filter>
+
+                <filter id="squiggly-4">
+                    <feTurbulence
+                        id="turbulence"
+                        baseFrequency="0.02"
+                        numOctaves="3"
+                        result="noise"
+                        seed="4"
+                    />
+                    <feDisplacementMap
+                        in="SourceGraphic"
+                        in2="noise"
+                        scale="6"
+                    />
+                </filter>
+            </defs>
+        </svg>
+        <!-- 👆 Copied from this codepen by Lucas Bebber: from https://codepen.io/lbebber/pen/KwGEQv?editors=1100 -->
+
+        <script type="module" src="/src/main.ts"></script>
+    </body>
+</html>

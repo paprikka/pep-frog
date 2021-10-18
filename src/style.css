@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+* {
+    box-sizing: border-box;
+    /* box-shadow: 0 0 0 2px rgba(255, 255, 0, 0.9) inset; */
+}
+
+:root {
+    --bg-color: #ff9393;
+    --main-color: #333;
+    --white-color: #fff;
+    --font-base: 'Indie Flower', cursive;
+    --border-width: 4px;
+}
+
+body,
+html {
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+    background-color: var(--bg-color);
+
+    height: 100vh;
+    width: 100vw;
+
+    font-family: var(--font-base);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    align-content: stretch;
+    justify-content: stretch;
+    justify-items: stretch;
+    height: 100vh;
+    width: 100vw;
+    max-width: 30rem;
+    margin: 0 auto;
+}
+
+.logo {
+    background: url('/src/logo.png');
+    height: 10%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 1rem;
+}
+
+.frog {
+    flex: 1;
+    /* border: 2px dashed var(--main-color); */
+    position: relative;
+}
+
+.frog__head {
+    background: url('/src/frog.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    width: 30%;
+    height: 30%;
+    position: absolute;
+    right: 0;
+    bottom: 20%;
+}
+
+.frog__blessing {
+    padding: 1rem;
+    font-family: var(--font-base);
+    font-weight: 500;
+    font-size: 2rem;
+    position: absolute;
+    bottom: 45%;
+    right: 0;
+    left: 0;
+    width: 100%;
+
+    animation: squiggly-anim 0.34s linear infinite;
+
+    font-weight: 600;
+    text-align: center;
+    padding: 15% 15% 20%;
+
+    background: url('/src/blessing.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.frog__blessing .spacer {
+    flex: 1;
+}
+
+footer {
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+    align-items: center;
+    font-size: 0.75rem;
+}
+
+footer p {
+    flex: 10;
+}
+footer a,
+footer a:visited {
+    color: var(--main-color);
+    font-weight: bold;
+}
+
+.button {
+    background-color: var(--white-color);
+    box-shadow: var(--border-width) var(--border-width) 0 0 var(--bg-color),
+        calc(var(--border-width) * 2) calc(var(--border-width) * 2) 0 0
+            var(--main-color);
+    border: var(--main-color) var(--border-width) solid;
+    font-weight: 600;
+    animation: squiggly-anim 0.34s linear infinite;
+    padding: 1rem;
+    font-family: var(--font-base);
+    font-size: 1rem;
+    font-weight: 600;
+
+    transition: 0.2s opacity;
+}
+
+.cta:hover {
+    opacity: 0.9;
+}
+.cta:active {
+    opacity: 1;
+    transform: translate(
+        calc(var(--border-width) * 2),
+        calc(var(--border-width) * 2)
+    );
+    box-shadow: none;
+}
+
+@keyframes squiggly-anim {
+    0% {
+        filter: url('#squiggly-0');
+    }
+
+    25% {
+        filter: url('#squiggly-1');
+    }
+
+    50% {
+        filter: url('#squiggly-2');
+    }
+
+    75% {
+        filter: url('#squiggly-3');
+    }
+
+    100% {
+        filter: url('#squiggly-4');
+    }
+}
