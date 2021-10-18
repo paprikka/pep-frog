@@ -27,6 +27,7 @@ html {
 }
 
 main {
+    animation: squiggly-anim 0.34s linear infinite;
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -37,6 +38,7 @@ main {
     width: 100vw;
     max-width: 30rem;
     margin: 0 auto;
+    padding-top: 1rem;
 }
 
 .logo {
@@ -77,7 +79,7 @@ main {
     left: 0;
     width: 100%;
 
-    animation: squiggly-anim 0.34s linear infinite;
+    /* animation: squiggly-anim 0.34s linear infinite; */
 
     font-weight: 600;
     text-align: center;
@@ -117,10 +119,10 @@ footer a:visited {
             var(--main-color);
     border: var(--main-color) var(--border-width) solid;
     font-weight: 600;
-    animation: squiggly-anim 0.34s linear infinite;
+
     padding: 1rem;
     font-family: var(--font-base);
-    font-size: 1rem;
+    font-size: 1.5rem;
     font-weight: 600;
 
     transition: 0.2s opacity;
