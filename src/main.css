@@ -145,6 +145,17 @@ footer a:visited {
     color: var(--amphibian-color);
 }
 
+@media all and (max-width: 400px) {
+    .button--small {
+        padding: 0.5rem 0.4rem;
+        font-size: 1rem;
+    }
+
+    .buttons {
+        align-items: center;
+    }
+}
+
 .buttons {
     display: flex;
     flex-direction: row;
@@ -177,6 +188,7 @@ footer a:visited {
     opacity: 0;
     visibility: hidden;
     transform: scale(0.7);
+    z-index: 2;
 }
 
 .toast span {
