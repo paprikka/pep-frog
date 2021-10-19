@@ -1,5 +1,3 @@
-import './style.css'
-
 import { dict } from './data'
 
 const $ = document.querySelector.bind(document)

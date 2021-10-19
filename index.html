@@ -5,6 +5,208 @@
         <link rel="icon" type="image/svg+xml" href="favicon.svg" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>🙏</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            * {
+                box-sizing: border-box;
+                /* box-shadow: 0 0 0 2px rgba(255, 255, 0, 0.9) inset; */
+            }
+
+            :root {
+                --bg-color: #ff9393;
+                --main-color: #333;
+                --white-color: #fff;
+                --amphibian-color: #aebc8e;
+                --font-base: 'Indie Flower', cursive;
+                --border-width: 4px;
+            }
+
+            body,
+            html {
+                font-size: 16px;
+                padding: 0;
+                margin: 0;
+                background-color: var(--bg-color);
+
+                height: 100vh;
+                width: 100vw;
+
+                font-family: var(--font-base);
+            }
+
+            main {
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+                align-content: stretch;
+                justify-content: stretch;
+                justify-items: stretch;
+                height: 100vh;
+                width: 100vw;
+                max-width: 30rem;
+                margin: 0 auto;
+                padding: 1rem;
+                overflow: hidden;
+            }
+
+            main::after {
+                content: '';
+                position: fixed;
+                user-select: none;
+                pointer-events: none;
+                background-image: url('/src/noise.png');
+                width: 100vw;
+                height: 100vh;
+                top: 0;
+                left: 0;
+                opacity: 0.05;
+            }
+
+            .logo {
+                background: url('/src/logo.png');
+                height: 10%;
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                margin: 1rem;
+            }
+
+            .frog {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                align-content: center;
+                justify-content: center;
+            }
+
+            .frog__head {
+                background: url('/src/frog.png');
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: bottom right;
+                min-height: 30%;
+            }
+
+            .frog__blessing {
+                padding: 0;
+                margin: 0;
+                text-align: center;
+
+                color: var(--main-color);
+                padding: 15% 10% 20%;
+                font-size: 1.5rem;
+
+                position: relative;
+                background: url('/src/blessing.png');
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+                animation: squiggly-anim 0.34s linear infinite;
+            }
+
+            footer {
+                padding: 1rem;
+                text-align: center;
+                font-size: 0.75rem;
+            }
+
+            footer p {
+                flex: 10;
+                font-family: 'Courier New', Courier, monospace;
+            }
+
+            footer p.emphasis {
+                font-size: 1rem;
+            }
+            footer a,
+            footer a:visited {
+                color: var(--main-color);
+                font-weight: bold;
+            }
+
+            .button {
+                color: var(--main-color);
+                background-color: var(--amphibian-color);
+                box-shadow: var(--border-width) var(--border-width) 0 0
+                        var(--bg-color),
+                    calc(var(--border-width) * 2) calc(var(--border-width) * 2)
+                        0 0 var(--main-color);
+                border: var(--main-color) var(--border-width) solid;
+                font-weight: 600;
+
+                padding: 1rem;
+                font-family: var(--font-base);
+                font-size: 1.25rem;
+                line-height: 1.2;
+                font-weight: 600;
+
+                transition: 0.2s opacity;
+                animation: squiggly-anim 0.34s linear infinite;
+
+                text-transform: uppercase;
+                cursor: pointer;
+            }
+
+            .cta:hover {
+                opacity: 0.9;
+            }
+            .cta:active {
+                opacity: 1;
+                transform: translate(
+                    calc(var(--border-width) * 2),
+                    calc(var(--border-width) * 2)
+                );
+                box-shadow: none;
+            }
+
+            .logo {
+                animation: squiggly-anim 0.4s linear infinite;
+            }
+
+            @keyframes enter {
+                from {
+                    opacity: 0;
+                    /* visibility: hidden; */
+                    transform: translateY(20%);
+                }
+
+                from {
+                    opacity: 1;
+                    /* visibility: visible; */
+                    transform: none;
+                }
+            }
+
+            .svg-filters {
+                display: none;
+            }
+
+            @keyframes squiggly-anim {
+                0% {
+                    filter: url('#squiggly-0');
+                }
+
+                25% {
+                    filter: url('#squiggly-1');
+                }
+
+                50% {
+                    filter: url('#squiggly-2');
+                }
+
+                75% {
+                    filter: url('#squiggly-3');
+                }
+
+                100% {
+                    filter: url('#squiggly-4');
+                }
+            }
+        </style>
     </head>
     <body>
         <main>
@@ -19,14 +221,35 @@
             </button>
             <footer>
                 <p>
-                    Based on
-                    <a href="https://i.redd.it/w6yzerz484u71.png" rel="noopener"
+                    Coded and designed by
+                    <a
+                        target="_blank"
+                        href="https://www.instagram.com/yay.psd/"
+                        rel="noopener"
+                        >@yay.psd</a
+                    >
+                </p>
+                <p>
+                    Text from
+                    <a
+                        target="_blank"
+                        href="https://i.redd.it/w6yzerz484u71.png"
+                        rel="noopener"
                         >this handy infographic</a
                     >
                     by
-                    <a href="https://theraccoonsociety.com/">Raccoon society</a
-                    >. Coded and designed by
-                    <a href="https://www.instagram.com/yay.psd/">@yay.psd</a>
+                    <a
+                        target="_blank"
+                        href="https://theraccoonsociety.com/"
+                        rel="noopener"
+                        >Raccoon society</a
+                    >, animations based on
+                    <a
+                        target="_blank"
+                        href="https://codepen.io/lbebber/pen/KwGEQv?editors=1100"
+                        rel="noopener"
+                        >this Codepen by Lucas Bebber</a
+                    >.
                 </p>
             </footer>
         </main>
