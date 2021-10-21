@@ -1,4 +1,4 @@
-import { dict } from './data'
+import { getRandomBlessing } from './data'
 import './main.css'
 const $ = document.querySelector.bind(document)
 const $$ = document.querySelectorAll.bind(document)
@@ -7,18 +7,16 @@ $$<SVGFEDisplacementMapElement>('feDisplacementMap').forEach((node) =>
     node.setAttribute('scale', (+node.getAttribute('scale')! * 0.25).toString())
 )
 const textContainer = $<SVGTextElement>('.frog__blessing')!
-const { floor, random } = Math
 
 const render = (phrase: string) => (textContainer.textContent = phrase)
 
 const cta = $<HTMLButtonElement>('.cta')!
-
-const getNewBlessing = () => {
-    const indices = dict.map((phrases) => floor(phrases.length * random()))
-    location.hash = `#${indices.join(',')}`
-    render(indices.map((phraseInd, ind) => dict[ind][phraseInd]).join(' '))
+const renderNewBlessing = () => {
+    const blessing = getRandomBlessing()
+    window.location.hash = `#${btoa(encodeURIComponent(blessing))}`
+    render(blessing)
 }
-cta.onclick = getNewBlessing
+cta.onclick = renderNewBlessing
 
 const shareBtn = $<HTMLButtonElement>('.share')!
 
@@ -38,21 +36,11 @@ shareBtn.onclick = () => {
             .then(() => toastEl.classList.add('toast--visible'))
             .then(wait(2000))
             .then(() => toastEl.classList.remove('toast--visible'))
-
-        // window.alert('URL copied to clipboard!')
     })
 }
 
 new Promise<string>((resolve, reject) => {
-    const maybeIndices = location.hash
-        .slice(1)
-        .split(',')
-        .map((_) => parseInt(_, 10))
-        .map((phraseInd, ind) => dict[ind][phraseInd])
-        .filter(Boolean)
-
-    if (maybeIndices.length !== 4) return reject()
-    resolve(maybeIndices.join(' '))
+    resolve(decodeURIComponent(atob(location.hash.slice(1))))
 })
     .then(render)
-    .catch(getNewBlessing)
+    .catch(renderNewBlessing)
