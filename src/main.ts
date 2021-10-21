@@ -48,7 +48,10 @@ shareBtn.onclick = () => {
 }
 
 new Promise<string>((resolve, reject) => {
-    resolve(decodeURIComponent(atob(location.hash.slice(1))))
+    const maybeBlessing = decodeURIComponent(atob(location.hash.slice(1)))
+    if (maybeBlessing) return resolve(maybeBlessing)
+
+    reject()
 })
     .then(render)
     .catch(renderNewBlessing)
