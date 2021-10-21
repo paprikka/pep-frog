@@ -3,6 +3,10 @@ import './main.css'
 const $ = document.querySelector.bind(document)
 const $$ = document.querySelectorAll.bind(document)
 
+import { Audio } from './audio'
+
+Audio.init()
+
 $$<SVGFEDisplacementMapElement>('feDisplacementMap').forEach((node) =>
     node.setAttribute('scale', (+node.getAttribute('scale')! * 0.25).toString())
 )
@@ -16,7 +20,10 @@ const renderNewBlessing = () => {
     window.location.hash = `#${btoa(encodeURIComponent(blessing))}`
     render(blessing)
 }
-cta.onclick = renderNewBlessing
+cta.onclick = () => {
+    Audio.play()
+    renderNewBlessing()
+}
 
 const shareBtn = $<HTMLButtonElement>('.share')!
 
@@ -26,6 +33,7 @@ const wait = (time: number) => () =>
 const toastEl = $<HTMLDivElement>('.toast')!
 
 shareBtn.onclick = () => {
+    Audio.play()
     const text = location.href
     const type = 'text/plain'
     const blob = new Blob([text], { type })
