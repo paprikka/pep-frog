@@ -5,7 +5,7 @@ import track4 from './track_4.mp3'
 import track5 from './track_5.mp3'
 import track6 from './track_6.mp3'
 
-const tracks = [track1, track2, track3, track4, track5]
+const tracks = [track1, track2, track3, track4, track5, track6]
 const elements: HTMLAudioElement[] = []
 export const Audio = {
     init() {
