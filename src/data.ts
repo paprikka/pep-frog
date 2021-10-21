@@ -1,4 +1,3 @@
-import * as Tracery from 'tracery-grammar'
 import { collapse, Filter } from './collapse'
 
 const rules = {
@@ -62,7 +61,6 @@ const rules = {
         ', you delicious beast.',
         ', <ribbit!>',
         ', so just get used to it.',
-        ', according to wikipedia.',
         ", and frogs don't lie.",
     ],
     personProperty: [
@@ -80,7 +78,6 @@ const rules = {
     actionActive: ['sing', 'croak', 'walk', 'chirp'],
     actionPassive: ['smell', 'look', 'sound'],
     action: ['#actionPassive#', '#actionActive#'],
-    theWhat: ['your #personProperty#', 'the way you #action#'],
     nounCompliment: [
         'makes my heart dance',
         'is a national treasure',
@@ -91,7 +88,8 @@ const rules = {
         'does the job',
         'just glistens',
     ],
-    bodyPart: ['heart', 'gills'],
+    bodyPart: ['heart', 'gills', 'soul'],
+
     bodyPartAction: ['dance', 'shiver', 'tremble'],
     actionCompliment: [
         'is a national treasure',
@@ -99,14 +97,22 @@ const rules = {
         'makes my #bodyPart# #bodyPartAction#',
     ],
     reactionVerb: ['love', 'adore', 'worship', 'dig'],
+    wellSynonym: ['good', 'nice', 'sooo good'],
+    optionalGreeting: ['Hej #termOfEndearment#,', 'Hej there,', ''],
     blessing: [
-        '#termOfEndearment# you #actionPassive# nice.',
-        '#otherPrefix# you #actionPassive# nice.',
-        'I #reactionVerb# your #personProperty#.',
         'I #reactionVerb# the way you #actionPassive#.',
+        'I #reactionVerb# your #personProperty#.',
+        '#optionalGreeting# I wish I could #actionPassive# as good as you.',
+        '#termOfEndearment#, you #actionPassive# #wellSynonym#.',
+        '#otherPrefix# you #actionPassive# #wellSynonym#.',
         'No one #actionPassive.plural# the way you do.',
         'The way you #actionPassive# makes my #bodyPart# #bodyPartAction#.',
-        "#prefix# your #personProperty# is the cat's meow",
+        "#prefix# your #personProperty# is the cat's meow.",
+        "#prefix# your #personProperty# is the cat's meow#suffix#.",
+        'Your #personProperty# deserves the Nobel Prize.',
+        `My favourite things: a) your #personProperty# b) your #personProperty# c) pissing off storks#suffix#
+        `,
+        'Your #personProperty# #actionCompliment#.',
     ],
 }
 
@@ -118,4 +124,124 @@ const filters: Record<string, Filter> = {
     },
 }
 
-export const getRandomBlessing = () => collapse(rules, '#blessing#', filters)
+export const dict: string[][] = [
+    [
+        'Champ,',
+        'Fact,',
+        'Everybody says:',
+        'Dang...',
+        'Check it:',
+        'Just saying...',
+        'Superstar,',
+        'Tiger,',
+        'Self,',
+        'Know this:',
+        'News alert:',
+        'Girl,',
+        'Ace,',
+        'Excuse me, but',
+        'Experts agree:',
+        'In my opinion,',
+        'Hear ye, hear ye,',
+        'Okay, listen up:',
+    ],
+    [
+        'the mere idea of you',
+        'your soul',
+        'your hair today',
+        'everything you do',
+        'your personal style',
+        'every thought you have',
+        'that sparkle in your eye',
+        'your presensce here',
+        'what you got going on',
+        'the essential you',
+        "your life's journey",
+        'that saucy personality',
+        'your DNA',
+        'that brain of yours',
+        'your choice of attire',
+        'the way you roll',
+        'whatever your secret is',
+        "all of y'all",
+    ],
+
+    [
+        'has serious game,',
+        'rains magic,',
+        'deserves the Nobel Prize,',
+        'raises the roof,',
+        'breeds miracles,',
+        'is paying off big time,',
+        'shows mad skills,',
+        'just shimmers,',
+        'is a national treasure,',
+        'gets the party hopping,',
+        'is the next big thing,',
+        'roars like a lion,',
+        'is a rainbow factory,',
+        'is made of diamonds,',
+        'makes birds sing,',
+        'makes my heart dance',
+        'should be taught in school,',
+        "makes my world go 'round",
+        'is 100% legit,',
+    ],
+
+    [
+        '24/7.',
+        'can I get an amen?',
+        "and that's a fact.",
+        'so treat yourself.',
+        'you feel me?',
+        "that's just science.",
+        'would I like?',
+        'for reals.',
+        'mic drop.',
+        'you hidden gem.',
+        'snuggle bear.',
+        'period.',
+        'can I get an amen?',
+        "now let's dance.",
+        'high five.',
+        'say it again!',
+        'according to CNN.',
+        'so get used to it.',
+    ],
+]
+
+const rules2 = {
+    first: dict[0],
+    second: dict[1],
+    third: dict[2],
+    fourth: dict[3],
+
+    thingsYouDo: ['sing', 'croak', 'walk', 'chirp'],
+    thingYouAre: [
+        'soul',
+        'heart',
+        'touch',
+        'interesting (yet pleasant) smell',
+        'hair today',
+        'style',
+        'kindness',
+        'tadpole',
+        'chirp',
+    ],
+
+    reactionVerb: ['love', 'adore', 'worship', 'dig'],
+    thingsYouHave: ['gills', 'eyes', 'ears'],
+
+    templated: [
+        '#first# I #reactionVerb# your #thingsYouHave#',
+        '#first# the way you #thingsYouDo# #third# #fourth#',
+        '#first# your #thingYouAre# #third# #fourth#',
+        '#first# #second# #third# #fourth#',
+        '#first# #second# #third#',
+        'I #reactionVerb# your #thingYouAre#',
+    ],
+
+    blessing: ['#templated#'],
+}
+
+export const getRandomBlessing = () => collapse(rules2, '#blessing#', filters)
