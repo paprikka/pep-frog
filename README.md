@@ -13,7 +13,7 @@ You don't need to install the project locally to do that: just fork it, go to th
 
 ## Finally, remember the wise words of the amphibian oracle:
 
-![Frog](./docs/logo.jpg)
+![Frog](./logo-social.jpg)
 
 ## Credits
 
