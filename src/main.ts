@@ -34,6 +34,11 @@ const toastEl = $<HTMLDivElement>('.toast')!
 
 shareBtn.onclick = () => {
     Audio.play()
+
+    if (!window.ClipboardItem) {
+        return alert('Hello, copy the URL to share!')
+    }
+
     const text = location.href
     const type = 'text/plain'
     const blob = new Blob([text], { type })

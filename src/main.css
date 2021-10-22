@@ -219,7 +219,17 @@ footer a:visited {
 }
 
 .svg-filters {
-    display: none;
+    /* 
+    For some reason this would trigger layout issues inc Chrome Canary, so I
+    added display: none; Weirdly enough, this would disable the animations on
+    Firefox, so we're at having a visible element that is forced not to impact
+    the layout.
+  */
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 @keyframes squiggly-anim {
