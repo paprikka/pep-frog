@@ -1,6 +1,6 @@
 # 🐸
 
-This repo contains the source code of [pep frog](https://amphibian.sonnet.io).
+This repo contains the source code of [pep frog](https://amphibian-advice.sonnet.io).
 
 ## I want to add my own pep talk!
 
